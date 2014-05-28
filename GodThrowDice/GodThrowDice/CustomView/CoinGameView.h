@@ -10,9 +10,9 @@
 
 @interface CoinGameView : UIView
 
+#define COIN_GAME_NOTIFICATION_FLIP_FINISHED @"coin_flip_finished"
+
 @property (strong,nonatomic) NSString *showingOption;
-
-
 
 - (void)startAnimateFlip:(NSString *)targetOption;
 

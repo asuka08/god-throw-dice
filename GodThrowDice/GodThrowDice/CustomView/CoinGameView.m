@@ -33,6 +33,8 @@
 #define COIN_PREFIX @"coin_%@"
 #define OPTION_OBVERSE @"obverse"
 #define OPTION_REVERSE @"reverse"
+
+
 static const float START_DURATION = 0.1;
 static const float DURATION_INCREASE_MUTIPLE = 1.2;
 static const float MAX_DURATION = 0.7;
@@ -198,6 +200,8 @@ static const float RADIO_FULL_MOON = 1.0;
     } else {
         NSLog(@"---- end flip");
         self.isFlipping = NO;
+        NSNotification *notification = [NSNotification notificationWithName:COIN_GAME_NOTIFICATION_FLIP_FINISHED object:self.finalTargetOption];
+        [[NSNotificationCenter defaultCenter]postNotification:notification];
     }
 }
 

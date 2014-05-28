@@ -14,6 +14,7 @@
 @interface GodThrowDiceFirstViewController ()
 
 @property (weak, nonatomic) IBOutlet CoinGameView *gameView;
+@property (weak, nonatomic) IBOutlet UILabel *label_title;
 @property (strong,nonatomic) CoinGame *game;
 
 @property (nonatomic) float currentDuration;
@@ -41,6 +42,33 @@
 {
     [super viewDidLoad];
     self.gameView.showingOption = [self.game getSelectedItem].optionName;
+    // self.label_title.text = [self.gameView.showingOption uppercaseString];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(notificationObserver_flipFinished:)
+                                                 name:COIN_GAME_NOTIFICATION_FLIP_FINISHED
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:COIN_GAME_NOTIFICATION_FLIP_FINISHED
+                                                  object:nil];
+}
+
+- (void)notificationObserver_flipFinished:(NSNotification *)notification
+{
+    NSLog(@"---- notification received");
+    if ([notification.object isKindOfClass:[NSString class]]) {
+        NSString *s = (NSString *)notification.object;
+        self.label_title.text = [s uppercaseString];
+    }
 }
 
 
@@ -51,37 +79,10 @@
 {
     
     RandomOptionItem *item = [self.game generateRandomAndGetSelectedItem];
-    // self.gameView.optionName = item.optionName;
+    self.label_title.text = @"FLIPPING...";
     [self.gameView startAnimateFlip:item.optionName];
 }
 
-#pragma mark - 动画
-
-
-
-/*
-- (void)startAnimateFlip
-{
-    
-}
-
-
-- (void)animateFlip
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:@"coinFlip" context:context];
-    [UIView setAnimationDuration:1.0];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationFinished:)];
-    self.gameView.radio = 0.0;
-    [UIView commitAnimations];
-}
-
-- (void)animationFinished:(id)sender
-{
-    NSLog(@"animation finished");
-}
- */
 
 
 @end
