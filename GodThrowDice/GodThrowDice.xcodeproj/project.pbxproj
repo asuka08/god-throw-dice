@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17986F5B1926026B00177741 /* CoinGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17986F5A1926026B00177741 /* CoinGameView.m */; };
 		17ED1CB919236C050042D968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CB819236C050042D968 /* Foundation.framework */; };
 		17ED1CBB19236C050042D968 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CBA19236C050042D968 /* CoreGraphics.framework */; };
 		17ED1CBD19236C050042D968 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CBC19236C050042D968 /* UIKit.framework */; };
@@ -22,6 +23,11 @@
 		17ED1CDD19236C050042D968 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CBC19236C050042D968 /* UIKit.framework */; };
 		17ED1CE519236C050042D968 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17ED1CE319236C050042D968 /* InfoPlist.strings */; };
 		17ED1CE719236C050042D968 /* GodThrowDiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CE619236C050042D968 /* GodThrowDiceTests.m */; };
+		17ED1D00192463810042D968 /* CoinGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CFB192463810042D968 /* CoinGame.m */; };
+		17ED1D01192463810042D968 /* DiceGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CFD192463810042D968 /* DiceGame.m */; };
+		17ED1D02192463810042D968 /* RandomGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CFF192463810042D968 /* RandomGame.m */; };
+		17ED1D05192463B30042D968 /* RouletteGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1D04192463B30042D968 /* RouletteGame.m */; };
+		17ED1D09192466670042D968 /* RandomOptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1D08192466670042D968 /* RandomOptionItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17986F591926026B00177741 /* CoinGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinGameView.h; path = CustomView/CoinGameView.h; sourceTree = "<group>"; };
+		17986F5A1926026B00177741 /* CoinGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameView.m; path = CustomView/CoinGameView.m; sourceTree = "<group>"; };
 		17ED1CB519236C050042D968 /* GodThrowDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GodThrowDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED1CB819236C050042D968 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17ED1CBA19236C050042D968 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +64,16 @@
 		17ED1CE219236C050042D968 /* GodThrowDiceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GodThrowDiceTests-Info.plist"; sourceTree = "<group>"; };
 		17ED1CE419236C050042D968 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17ED1CE619236C050042D968 /* GodThrowDiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GodThrowDiceTests.m; sourceTree = "<group>"; };
+		17ED1CFA192463810042D968 /* CoinGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinGame.h; path = Model/CoinGame.h; sourceTree = "<group>"; };
+		17ED1CFB192463810042D968 /* CoinGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGame.m; path = Model/CoinGame.m; sourceTree = "<group>"; };
+		17ED1CFC192463810042D968 /* DiceGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceGame.h; path = Model/DiceGame.h; sourceTree = "<group>"; };
+		17ED1CFD192463810042D968 /* DiceGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceGame.m; path = Model/DiceGame.m; sourceTree = "<group>"; };
+		17ED1CFE192463810042D968 /* RandomGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomGame.h; path = Model/RandomGame.h; sourceTree = "<group>"; };
+		17ED1CFF192463810042D968 /* RandomGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomGame.m; path = Model/RandomGame.m; sourceTree = "<group>"; };
+		17ED1D03192463B30042D968 /* RouletteGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouletteGame.h; path = Model/RouletteGame.h; sourceTree = "<group>"; };
+		17ED1D04192463B30042D968 /* RouletteGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouletteGame.m; path = Model/RouletteGame.m; sourceTree = "<group>"; };
+		17ED1D07192466670042D968 /* RandomOptionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomOptionItem.h; path = Model/RandomOptionItem.h; sourceTree = "<group>"; };
+		17ED1D08192466670042D968 /* RandomOptionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomOptionItem.m; path = Model/RandomOptionItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +133,8 @@
 		17ED1CBE19236C050042D968 /* GodThrowDice */ = {
 			isa = PBXGroup;
 			children = (
-				17ED1CC719236C050042D968 /* GodThrowDiceAppDelegate.h */,
-				17ED1CC819236C050042D968 /* GodThrowDiceAppDelegate.m */,
+				17ED1D06192464960042D968 /* CustomView */,
+				17ED1CF3192462E80042D968 /* Model */,
 				17ED1CCA19236C050042D968 /* Main.storyboard */,
 				17ED1CCD19236C050042D968 /* GodThrowDiceFirstViewController.h */,
 				17ED1CCE19236C050042D968 /* GodThrowDiceFirstViewController.m */,
@@ -131,6 +149,8 @@
 		17ED1CBF19236C050042D968 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17ED1CC719236C050042D968 /* GodThrowDiceAppDelegate.h */,
+				17ED1CC819236C050042D968 /* GodThrowDiceAppDelegate.m */,
 				17ED1CC019236C050042D968 /* GodThrowDice-Info.plist */,
 				17ED1CC119236C050042D968 /* InfoPlist.strings */,
 				17ED1CC419236C050042D968 /* main.m */,
@@ -155,6 +175,32 @@
 				17ED1CE319236C050042D968 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17ED1CF3192462E80042D968 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17ED1CFA192463810042D968 /* CoinGame.h */,
+				17ED1CFB192463810042D968 /* CoinGame.m */,
+				17ED1CFC192463810042D968 /* DiceGame.h */,
+				17ED1CFD192463810042D968 /* DiceGame.m */,
+				17ED1CFE192463810042D968 /* RandomGame.h */,
+				17ED1CFF192463810042D968 /* RandomGame.m */,
+				17ED1D03192463B30042D968 /* RouletteGame.h */,
+				17ED1D04192463B30042D968 /* RouletteGame.m */,
+				17ED1D07192466670042D968 /* RandomOptionItem.h */,
+				17ED1D08192466670042D968 /* RandomOptionItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		17ED1D06192464960042D968 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				17986F591926026B00177741 /* CoinGameView.h */,
+				17986F5A1926026B00177741 /* CoinGameView.m */,
+			);
+			name = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,10 +301,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17ED1D02192463810042D968 /* RandomGame.m in Sources */,
+				17986F5B1926026B00177741 /* CoinGameView.m in Sources */,
 				17ED1CCF19236C050042D968 /* GodThrowDiceFirstViewController.m in Sources */,
 				17ED1CC519236C050042D968 /* main.m in Sources */,
 				17ED1CC919236C050042D968 /* GodThrowDiceAppDelegate.m in Sources */,
+				17ED1D00192463810042D968 /* CoinGame.m in Sources */,
+				17ED1D01192463810042D968 /* DiceGame.m in Sources */,
 				17ED1CD219236C050042D968 /* GodThrowDiceSecondViewController.m in Sources */,
+				17ED1D09192466670042D968 /* RandomOptionItem.m in Sources */,
+				17ED1D05192463B30042D968 /* RouletteGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -372,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -386,8 +438,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GodThrowDice/GodThrowDice-Prefix.pch";
 				INFOPLIST_FILE = "GodThrowDice/GodThrowDice-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -400,8 +453,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GodThrowDice/GodThrowDice-Prefix.pch";
 				INFOPLIST_FILE = "GodThrowDice/GodThrowDice-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -465,6 +519,7 @@
 				17ED1CEC19236C050042D968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17ED1CED19236C050042D968 /* Build configuration list for PBXNativeTarget "GodThrowDiceTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +528,7 @@
 				17ED1CEF19236C050042D968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

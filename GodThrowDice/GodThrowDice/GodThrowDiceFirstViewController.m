@@ -7,23 +7,81 @@
 //
 
 #import "GodThrowDiceFirstViewController.h"
+#import "CoinGameView.h"
+#import "CoinGame.h"
+#import "RandomOptionItem.h"
 
 @interface GodThrowDiceFirstViewController ()
+
+@property (weak, nonatomic) IBOutlet CoinGameView *gameView;
+@property (strong,nonatomic) CoinGame *game;
+
+@property (nonatomic) float currentDuration;
+@property (nonatomic) float currentRadio;
 
 @end
 
 @implementation GodThrowDiceFirstViewController
 
+#pragma mark - 属性
+
+
+
+- (CoinGame *)game
+{
+    if (!_game) {
+        _game = [[CoinGame alloc] init];
+    }
+    return _game;
+}
+
+#pragma mark - 方法
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.gameView.showingOption = [self.game getSelectedItem].optionName;
 }
 
-- (void)didReceiveMemoryWarning
+
+#pragma mark - 手势
+
+
+- (IBAction)gameView_tap:(UITapGestureRecognizer *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    RandomOptionItem *item = [self.game generateRandomAndGetSelectedItem];
+    // self.gameView.optionName = item.optionName;
+    [self.gameView startAnimateFlip:item.optionName];
 }
+
+#pragma mark - 动画
+
+
+
+/*
+- (void)startAnimateFlip
+{
+    
+}
+
+
+- (void)animateFlip
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:@"coinFlip" context:context];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationFinished:)];
+    self.gameView.radio = 0.0;
+    [UIView commitAnimations];
+}
+
+- (void)animationFinished:(id)sender
+{
+    NSLog(@"animation finished");
+}
+ */
+
 
 @end
