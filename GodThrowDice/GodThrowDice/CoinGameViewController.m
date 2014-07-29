@@ -6,23 +6,23 @@
 //  Copyright (c) 2014年 verysb. All rights reserved.
 //
 
-#import "GodThrowDiceFirstViewController.h"
+#import "CoinGameViewController.h"
 #import "CoinGameView.h"
 #import "CoinGame.h"
 #import "RandomOptionItem.h"
 
-@interface GodThrowDiceFirstViewController ()
+@interface CoinGameViewController ()
 
 @property (weak, nonatomic) IBOutlet CoinGameView *gameView;
 @property (weak, nonatomic) IBOutlet UILabel *label_title;
 @property (strong,nonatomic) CoinGame *game;
 
-@property (nonatomic) float currentDuration;
-@property (nonatomic) float currentRadio;
+// @property (nonatomic) float currentDuration;
+// @property (nonatomic) float currentRadio;
 
 @end
 
-@implementation GodThrowDiceFirstViewController
+@implementation CoinGameViewController
 
 #pragma mark - 属性
 
@@ -74,7 +74,6 @@
 
 #pragma mark - 手势
 
-
 - (IBAction)gameView_tap:(UITapGestureRecognizer *)sender
 {
     
@@ -82,6 +81,7 @@
     self.label_title.text = @"FLIPPING...";
     [self.gameView startAnimateFlip:item.optionName];
 }
+
 
 
 

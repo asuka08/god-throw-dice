@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		179252EE19517921005E3808 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179252ED19517921005E3808 /* TestViewController.m */; };
 		17986F5B1926026B00177741 /* CoinGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17986F5A1926026B00177741 /* CoinGameView.m */; };
+		17AD2F9319628EDA00841CE5 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AD2F9219628EDA00841CE5 /* Test2ViewController.m */; };
 		17ED1CB919236C050042D968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CB819236C050042D968 /* Foundation.framework */; };
 		17ED1CBB19236C050042D968 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CBA19236C050042D968 /* CoreGraphics.framework */; };
 		17ED1CBD19236C050042D968 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CBC19236C050042D968 /* UIKit.framework */; };
@@ -15,8 +17,8 @@
 		17ED1CC519236C050042D968 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CC419236C050042D968 /* main.m */; };
 		17ED1CC919236C050042D968 /* GodThrowDiceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CC819236C050042D968 /* GodThrowDiceAppDelegate.m */; };
 		17ED1CCC19236C050042D968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17ED1CCA19236C050042D968 /* Main.storyboard */; };
-		17ED1CCF19236C050042D968 /* GodThrowDiceFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CCE19236C050042D968 /* GodThrowDiceFirstViewController.m */; };
-		17ED1CD219236C050042D968 /* GodThrowDiceSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CD119236C050042D968 /* GodThrowDiceSecondViewController.m */; };
+		17ED1CCF19236C050042D968 /* CoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CCE19236C050042D968 /* CoinGameViewController.m */; };
+		17ED1CD219236C050042D968 /* DiceGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CD119236C050042D968 /* DiceGameViewController.m */; };
 		17ED1CD419236C050042D968 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17ED1CD319236C050042D968 /* Images.xcassets */; };
 		17ED1CDB19236C050042D968 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CDA19236C050042D968 /* XCTest.framework */; };
 		17ED1CDC19236C050042D968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CB819236C050042D968 /* Foundation.framework */; };
@@ -41,8 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		179252EC19517921005E3808 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		179252ED19517921005E3808 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		17986F591926026B00177741 /* CoinGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinGameView.h; path = CustomView/CoinGameView.h; sourceTree = "<group>"; };
 		17986F5A1926026B00177741 /* CoinGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameView.m; path = CustomView/CoinGameView.m; sourceTree = "<group>"; };
+		17AD2F9119628EDA00841CE5 /* Test2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
+		17AD2F9219628EDA00841CE5 /* Test2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
 		17ED1CB519236C050042D968 /* GodThrowDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GodThrowDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED1CB819236C050042D968 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17ED1CBA19236C050042D968 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,10 +60,10 @@
 		17ED1CC719236C050042D968 /* GodThrowDiceAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GodThrowDiceAppDelegate.h; sourceTree = "<group>"; };
 		17ED1CC819236C050042D968 /* GodThrowDiceAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GodThrowDiceAppDelegate.m; sourceTree = "<group>"; };
 		17ED1CCB19236C050042D968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		17ED1CCD19236C050042D968 /* GodThrowDiceFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GodThrowDiceFirstViewController.h; sourceTree = "<group>"; };
-		17ED1CCE19236C050042D968 /* GodThrowDiceFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GodThrowDiceFirstViewController.m; sourceTree = "<group>"; };
-		17ED1CD019236C050042D968 /* GodThrowDiceSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GodThrowDiceSecondViewController.h; sourceTree = "<group>"; };
-		17ED1CD119236C050042D968 /* GodThrowDiceSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GodThrowDiceSecondViewController.m; sourceTree = "<group>"; };
+		17ED1CCD19236C050042D968 /* CoinGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoinGameViewController.h; sourceTree = "<group>"; };
+		17ED1CCE19236C050042D968 /* CoinGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoinGameViewController.m; sourceTree = "<group>"; };
+		17ED1CD019236C050042D968 /* DiceGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiceGameViewController.h; sourceTree = "<group>"; };
+		17ED1CD119236C050042D968 /* DiceGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiceGameViewController.m; sourceTree = "<group>"; };
 		17ED1CD319236C050042D968 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		17ED1CD919236C050042D968 /* GodThrowDiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GodThrowDiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED1CDA19236C050042D968 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -136,12 +142,16 @@
 				17ED1D06192464960042D968 /* CustomView */,
 				17ED1CF3192462E80042D968 /* Model */,
 				17ED1CCA19236C050042D968 /* Main.storyboard */,
-				17ED1CCD19236C050042D968 /* GodThrowDiceFirstViewController.h */,
-				17ED1CCE19236C050042D968 /* GodThrowDiceFirstViewController.m */,
-				17ED1CD019236C050042D968 /* GodThrowDiceSecondViewController.h */,
-				17ED1CD119236C050042D968 /* GodThrowDiceSecondViewController.m */,
+				17ED1CCD19236C050042D968 /* CoinGameViewController.h */,
+				17ED1CCE19236C050042D968 /* CoinGameViewController.m */,
+				17ED1CD019236C050042D968 /* DiceGameViewController.h */,
+				17ED1CD119236C050042D968 /* DiceGameViewController.m */,
 				17ED1CD319236C050042D968 /* Images.xcassets */,
 				17ED1CBF19236C050042D968 /* Supporting Files */,
+				179252EC19517921005E3808 /* TestViewController.h */,
+				179252ED19517921005E3808 /* TestViewController.m */,
+				17AD2F9119628EDA00841CE5 /* Test2ViewController.h */,
+				17AD2F9219628EDA00841CE5 /* Test2ViewController.m */,
 			);
 			path = GodThrowDice;
 			sourceTree = "<group>";
@@ -251,6 +261,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = verysb;
 				TargetAttributes = {
+					17ED1CB419236C050042D968 = {
+						DevelopmentTeam = 9N8TNTZJG2;
+					};
 					17ED1CD819236C050042D968 = {
 						TestTargetID = 17ED1CB419236C050042D968;
 					};
@@ -303,12 +316,14 @@
 			files = (
 				17ED1D02192463810042D968 /* RandomGame.m in Sources */,
 				17986F5B1926026B00177741 /* CoinGameView.m in Sources */,
-				17ED1CCF19236C050042D968 /* GodThrowDiceFirstViewController.m in Sources */,
+				17ED1CCF19236C050042D968 /* CoinGameViewController.m in Sources */,
 				17ED1CC519236C050042D968 /* main.m in Sources */,
 				17ED1CC919236C050042D968 /* GodThrowDiceAppDelegate.m in Sources */,
 				17ED1D00192463810042D968 /* CoinGame.m in Sources */,
 				17ED1D01192463810042D968 /* DiceGame.m in Sources */,
-				17ED1CD219236C050042D968 /* GodThrowDiceSecondViewController.m in Sources */,
+				179252EE19517921005E3808 /* TestViewController.m in Sources */,
+				17ED1CD219236C050042D968 /* DiceGameViewController.m in Sources */,
+				17AD2F9319628EDA00841CE5 /* Test2ViewController.m in Sources */,
 				17ED1D09192466670042D968 /* RandomOptionItem.m in Sources */,
 				17ED1D05192463B30042D968 /* RouletteGame.m in Sources */,
 			);
@@ -435,11 +450,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GodThrowDice/GodThrowDice-Prefix.pch";
 				INFOPLIST_FILE = "GodThrowDice/GodThrowDice-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,11 +468,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GodThrowDice/GodThrowDice-Prefix.pch";
 				INFOPLIST_FILE = "GodThrowDice/GodThrowDice-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

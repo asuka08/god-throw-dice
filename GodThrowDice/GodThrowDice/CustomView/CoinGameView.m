@@ -78,7 +78,6 @@ static const float RADIO_FULL_MOON = 1.0;
 // 初始化
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"initWithCoder...");
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setup];
@@ -141,6 +140,8 @@ static const float RADIO_FULL_MOON = 1.0;
     return result;
 }
 
+
+
 #pragma mark - 动画方法
 
 // 开始翻转动画
@@ -176,9 +177,9 @@ static const float RADIO_FULL_MOON = 1.0;
 // 执行翻转动画
 - (void)animateFlip
 {
-    NSLog([NSString stringWithFormat:@"---- drtn: %f, trd: %f, cnt: %d, left: %u, op: %@-%@, ", self.currentDuration, self.tempTargetRadio, self.flipCount, self.flipLeft, self.finalTargetOption, self.tempTargetOption] );
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:@"coinFlip" context:context];
+    NSLog( @"---- drtn: %f, trd: %f, cnt: %lu, left: %lu, op: %@-%@", self.currentDuration, self.tempTargetRadio, (unsigned long)self.flipCount, (unsigned long)self.flipLeft, self.finalTargetOption, self.tempTargetOption );
+    
+    [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:self.currentDuration];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationFinished:)];

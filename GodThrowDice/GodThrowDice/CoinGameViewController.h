@@ -1,5 +1,5 @@
 //
-//  GodThrowDiceSecondViewController.h
+//  GodThrowDiceFirstViewController.h
 //  GodThrowDice
 //
 //  Created by asuka on 14-5-14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GodThrowDiceSecondViewController : UIViewController
+@interface CoinGameViewController : UIViewController
 
 @end

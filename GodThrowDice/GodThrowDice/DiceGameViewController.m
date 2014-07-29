@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 verysb. All rights reserved.
 //
 
-#import "GodThrowDiceSecondViewController.h"
+#import "DiceGameViewController.h"
 
-@interface GodThrowDiceSecondViewController ()
+@interface DiceGameViewController ()
 
 @end
 
-@implementation GodThrowDiceSecondViewController
+@implementation DiceGameViewController
 
 - (void)viewDidLoad
 {
