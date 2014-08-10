@@ -7,13 +7,14 @@
 //
 
 #import "CoinGameView.h"
+#import "OptionDict.h"
 
 @interface CoinGameView()
 
-@property (strong,nonatomic) UIImageView *imageView;
+@property (strong,nonatomic) UIImageView *subImageView;
 @property (nonatomic) CGFloat showingRadio;
 
-
+// 是否正在翻转. 如果正在翻转, 不接受新的翻转
 @property (nonatomic) BOOL isFlipping;
 @property (nonatomic) float currentDuration;
 @property (nonatomic) float tempTargetRadio;
@@ -31,8 +32,8 @@
 
 
 #define COIN_PREFIX @"coin_%@"
-#define OPTION_OBVERSE @"obverse"
-#define OPTION_REVERSE @"reverse"
+//#define OPTION_OBVERSE @"obverse"
+//#define OPTION_REVERSE @"reverse"
 
 
 static const float START_DURATION = 0.1;
@@ -75,18 +76,26 @@ static const float RADIO_FULL_MOON = 1.0;
 
 #pragma mark - 方法
 
-// 初始化
+/**
+ *  初始化
+ *
+ *  @param aDecoder aDecoder
+ *
+ *  @return id
+ */
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setup];
-        [self addImageView];
+        [self addSubImageView];
     }
     return self;
 }
 
-// 初始化设置
+/**
+ *  初始化设置
+ */
 - (void)setup
 {
     self.backgroundColor = [UIColor clearColor];
@@ -96,11 +105,11 @@ static const float RADIO_FULL_MOON = 1.0;
 }
 
 // 添加ImageView子view
-- (void)addImageView
+- (void)addSubImageView
 {
     CGRect rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
-    self.imageView = [[UIImageView alloc] initWithFrame:rect];
-    [self addSubview:self.imageView];
+    self.subImageView = [[UIImageView alloc] initWithFrame:rect];
+    [self addSubview:self.subImageView];
 }
 
 // 设置图像
@@ -111,8 +120,8 @@ static const float RADIO_FULL_MOON = 1.0;
         CGFloat width = self.bounds.size.width * self.showingRadio;
         CGFloat x = ( self.bounds.size.width - width ) / 2;
         CGRect rect = CGRectMake( x, 0, width, self.bounds.size.height);
-        [self.imageView setBounds:rect];
-        self.imageView.image = coinImage;
+        [self.subImageView setBounds:rect];
+        self.subImageView.image = coinImage;
     }
 }
 
@@ -132,10 +141,10 @@ static const float RADIO_FULL_MOON = 1.0;
 - (NSString *)exchangeTargetOption:(NSString *)targetOption
 {
     NSString *result;
-    if ( [targetOption isEqualToString:OPTION_OBVERSE]) {
-        result = OPTION_REVERSE;
+    if ( [targetOption isEqualToString:OPTION_COIN_OBVERSE]) {
+        result = OPTION_COIN_REVERSE;
     } else {
-        result = OPTION_OBVERSE;
+        result = OPTION_COIN_OBVERSE;
     }
     return result;
 }

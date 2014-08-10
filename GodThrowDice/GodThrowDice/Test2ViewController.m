@@ -15,6 +15,14 @@
 
 @implementation Test2ViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // self.label0.font = [UIFont fontWithName:@"Chalkduster" size:64];
+    // self.label0.font = [UIFont systemFontOfSize:128];
+    self.label0.adjustsFontSizeToFitWidth = YES;
+    self.label0.adjustsLetterSpacingToFitWidth = YES;
+}
 
 - (IBAction)buttonRoll_Click:(id)sender
 {

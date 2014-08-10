@@ -11,4 +11,6 @@
 
 @interface DiceGame : RandomGame
 
+- (instancetype)initWithFaceCount:(uint)faceCount;
+
 @end

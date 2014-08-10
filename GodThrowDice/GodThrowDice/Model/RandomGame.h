@@ -17,7 +17,7 @@
 #pragma mark - 属性
 
 /**
- *  可供随机选择的项
+ *  可供随机选择的项, Array of RandomOptionItem
  */
 @property (strong,nonatomic) NSMutableArray *optionItems;
 

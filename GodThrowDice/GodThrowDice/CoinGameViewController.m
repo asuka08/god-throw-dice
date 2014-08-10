@@ -10,6 +10,7 @@
 #import "CoinGameView.h"
 #import "CoinGame.h"
 #import "RandomOptionItem.h"
+#import "OptionDict.h"
 
 @interface CoinGameViewController ()
 

@@ -7,23 +7,67 @@
 //
 
 #import "DiceGameViewController.h"
+#import "DiceGameView.h"
+#import "DiceGame.h"
+#import "RandomOptionItem.h"
 
 @interface DiceGameViewController ()
+
+@property (weak, nonatomic) IBOutlet DiceGameView *gameView;
+@property (strong,nonatomic) DiceGame *game;
 
 @end
 
 @implementation DiceGameViewController
 
+#pragma mark - 属性
+
+- (DiceGame *)game
+{
+    if (!_game) {
+        _game = [[DiceGame alloc] init];
+    }
+    return _game;
+}
+
+
+#pragma mark - 方法
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.gameView.showingOptionName = [self.game getSelectedItem].optionName;
 }
 
-- (void)didReceiveMemoryWarning
+
+#pragma mark - 手势
+
+- (IBAction)gameView_tap:(UITapGestureRecognizer *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    RandomOptionItem *item = [self.game generateRandomAndGetSelectedItem];
+    [self.gameView startAnimateRolling:item.optionName options:self.game.optionItems];
 }
+
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
