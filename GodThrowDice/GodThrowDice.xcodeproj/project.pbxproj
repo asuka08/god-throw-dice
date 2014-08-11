@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		179252EE19517921005E3808 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179252ED19517921005E3808 /* TestViewController.m */; };
 		17986F5B1926026B00177741 /* CoinGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17986F5A1926026B00177741 /* CoinGameView.m */; };
-		17AD2F9319628EDA00841CE5 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AD2F9219628EDA00841CE5 /* Test2ViewController.m */; };
 		17D2C46D198BE9C100F0AB8B /* DiceGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2C46C198BE9C100F0AB8B /* DiceGameView.m */; };
 		17D2C471198BEB5E00F0AB8B /* OptionDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2C470198BEB5E00F0AB8B /* OptionDict.m */; };
 		17ED1CB919236C050042D968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CB819236C050042D968 /* Foundation.framework */; };
@@ -45,12 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		179252EC19517921005E3808 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		179252ED19517921005E3808 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		17986F591926026B00177741 /* CoinGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinGameView.h; path = CustomView/CoinGameView.h; sourceTree = "<group>"; };
 		17986F5A1926026B00177741 /* CoinGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameView.m; path = CustomView/CoinGameView.m; sourceTree = "<group>"; };
-		17AD2F9119628EDA00841CE5 /* Test2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
-		17AD2F9219628EDA00841CE5 /* Test2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
 		17D2C46B198BE9C100F0AB8B /* DiceGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceGameView.h; path = CustomView/DiceGameView.h; sourceTree = "<group>"; };
 		17D2C46C198BE9C100F0AB8B /* DiceGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceGameView.m; path = CustomView/DiceGameView.m; sourceTree = "<group>"; };
 		17D2C46F198BEB5E00F0AB8B /* OptionDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionDict.h; path = Common/OptionDict.h; sourceTree = "<group>"; };
@@ -164,10 +158,6 @@
 				17ED1CD119236C050042D968 /* DiceGameViewController.m */,
 				17ED1CD319236C050042D968 /* Images.xcassets */,
 				17ED1CBF19236C050042D968 /* Supporting Files */,
-				179252EC19517921005E3808 /* TestViewController.h */,
-				179252ED19517921005E3808 /* TestViewController.m */,
-				17AD2F9119628EDA00841CE5 /* Test2ViewController.h */,
-				17AD2F9219628EDA00841CE5 /* Test2ViewController.m */,
 			);
 			path = GodThrowDice;
 			sourceTree = "<group>";
@@ -340,10 +330,8 @@
 				17ED1CC919236C050042D968 /* GodThrowDiceAppDelegate.m in Sources */,
 				17ED1D00192463810042D968 /* CoinGame.m in Sources */,
 				17ED1D01192463810042D968 /* DiceGame.m in Sources */,
-				179252EE19517921005E3808 /* TestViewController.m in Sources */,
 				17ED1CD219236C050042D968 /* DiceGameViewController.m in Sources */,
 				17D2C471198BEB5E00F0AB8B /* OptionDict.m in Sources */,
-				17AD2F9319628EDA00841CE5 /* Test2ViewController.m in Sources */,
 				17ED1D09192466670042D968 /* RandomOptionItem.m in Sources */,
 				17ED1D05192463B30042D968 /* RouletteGame.m in Sources */,
 			);

@@ -23,9 +23,13 @@
 
 #pragma mark - 属性
 
-#define ROLLING_TIMES 25
+// 滚动次数
+#define ROLLING_TIMES 20
 // 滚动间隔时间
-#define ROLLING_INTERVAL 0.08
+#define ROLLING_INTERVAL_INIT 0.04
+// 滚动间隔时间增加倍数
+#define ROLLING_INTERVAL_INCREASE 1.1
+
 
 @synthesize showingOptionName = _showingOptionName;
 
@@ -142,15 +146,17 @@
         self.showingOptionName = targetOptionName;
     }
     
-    self.isRolling = true;
+    self.isRolling = YES;
     
     __weak DiceGameView *__self = self;
     dispatch_queue_t q = dispatch_queue_create("dice_rolling_anime", NULL);
     dispatch_async(q, ^{
         int index;
-        for (int i = 0; i < ROLLING_TIMES; i++) {
+        double rollingInterval = ROLLING_INTERVAL_INIT;
+        int rollingTimes = ROLLING_TIMES;
+        for (int i = 0; i < rollingTimes; i++) {
             NSString *optionTextToShow;
-            if (i == ROLLING_TIMES - 1) {
+            if (i == rollingTimes - 1) {
                 optionTextToShow = targetOptionName;
             } else {
                 do {
@@ -163,23 +169,18 @@
             NSLog(@"for i = %d, optionTextToShow: %@, target: %@", i, optionTextToShow, targetOptionName);
             dispatch_async( dispatch_get_main_queue(), ^{
                 __self.showingOptionName = optionTextToShow;
-                if (i == ROLLING_TIMES - 1) {
-                    self.isRolling = false;
+                if (i == rollingTimes - 1) {
+                    self.isRolling = NO;
                 }
             });
-            [NSThread sleepForTimeInterval:ROLLING_INTERVAL];
+//            if (i == 10 || i == 16) {
+//                rollingInterval *= 2;
+//            }
+            rollingInterval *= ROLLING_INTERVAL_INCREASE;
+            [NSThread sleepForTimeInterval:rollingInterval];
         }
     });
     
-
-}
-
-
-/**
- *  执行动画滚动
- */
-- (void)animateRolling:(NSString *)targetOptionN
-{
 
 }
 

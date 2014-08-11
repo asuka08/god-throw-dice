@@ -18,19 +18,19 @@
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "appIcon_57x57-1.png",
+      "filename" : "appIcon_57x57_2.png",
       "scale" : "1x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "appIcon_57x57.png",
+      "filename" : "appIcon_114x114_2.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "appIcon.png",
+      "filename" : "appIcon_120x120_2.png",
       "scale" : "2x"
     }
   ],
