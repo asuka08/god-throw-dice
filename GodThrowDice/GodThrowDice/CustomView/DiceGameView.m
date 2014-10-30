@@ -26,9 +26,9 @@
 // 滚动次数
 #define ROLLING_TIMES 20
 // 滚动间隔时间
-#define ROLLING_INTERVAL_INIT 0.04
+#define ROLLING_INTERVAL_SECONDS_INIT 0.04
 // 滚动间隔时间增加倍数
-#define ROLLING_INTERVAL_INCREASE 1.1
+#define ROLLING_INTERVAL_INCREASE_TIMES 1.1
 
 
 @synthesize showingOptionName = _showingOptionName;
@@ -51,27 +51,40 @@
 
 #pragma mark - 方法
 
-/**
- *  初始化
- *
- *  @param aDecoder aDecoder
- *
- *  @return id
- */
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setup];
-        [self addSubLabel];
     }
     return self;
 }
 
+
 /**
- *  初始化设置
+ *  初始化
  */
 - (void)setup
+{
+    [self setupFacade];
+    [self addSubLabel];
+}
+
+
+/**
+ *  初始化外观
+ */
+- (void)setupFacade
 {
     self.backgroundColor = [UIColor whiteColor];
     self.layer.cornerRadius = [self getFittingSize] / 10;
@@ -91,10 +104,6 @@
     self.subLabel.textAlignment = NSTextAlignmentCenter;
     self.subLabel.font = [UIFont systemFontOfSize:[self getFittingSize]];
     self.subLabel.adjustsFontSizeToFitWidth = YES;
-//    self.subLabel.layer.borderColor = (__bridge CGColorRef)([UIColor redColor]);
-//    self.subLabel.layer.borderWidth = 6;
-//    self.subLabel.adjustsLetterSpacingToFitWidth = YES;
-    
     [self addSubview:self.subLabel];
 }
 
@@ -129,8 +138,9 @@
  *
  *  @param targetOption 目标选项
  *  @param options      全部选项
+ *  @param plusTimeMs   额外增加时间秒数
  */
-- (void)startAnimateRolling:(NSString *)targetOptionName options:(NSMutableArray *)options
+- (void)startAnimateRollingWithTarget:(NSString *)targetOptionName options:(NSMutableArray *)options plusTimeSeconds:(double)plusTimeSeconds
 {
     if (self.isRolling) {
         // 如果已经正在滚动中, 则不再接收新的滚动请求
@@ -152,11 +162,14 @@
     dispatch_queue_t q = dispatch_queue_create("dice_rolling_anime", NULL);
     dispatch_async(q, ^{
         int index;
-        double rollingInterval = ROLLING_INTERVAL_INIT;
-        int rollingTimes = ROLLING_TIMES;
-        for (int i = 0; i < rollingTimes; i++) {
+        double rollingInterval = ROLLING_INTERVAL_SECONDS_INIT;              // 初始滚动间隔时间
+        uint plusRollingTimes = plusTimeSeconds / rollingInterval;           // 额外增加的滚动次数
+        uint totalRollingTimes = ROLLING_TIMES + plusRollingTimes;           // 总滚动次数
+        
+        // 循环totalRollingTimes次, 变换骰子面
+        for (int i = 0; i < totalRollingTimes; i++) {
             NSString *optionTextToShow;
-            if (i == rollingTimes - 1) {
+            if (i == totalRollingTimes - 1) {
                 optionTextToShow = targetOptionName;
             } else {
                 do {
@@ -164,19 +177,19 @@
                     RandomOptionItem *item = options[index];
                     optionTextToShow = item.optionName;
                 } while ([optionTextToShow isEqualToString:self.showingOptionName]);
-                
             }
-            NSLog(@"for i = %d, optionTextToShow: %@, target: %@", i, optionTextToShow, targetOptionName);
+//            NSLog(@"for i = %d, optionTextToShow: %@, target: %@", i, optionTextToShow, targetOptionName);
             dispatch_async( dispatch_get_main_queue(), ^{
                 __self.showingOptionName = optionTextToShow;
-                if (i == rollingTimes - 1) {
-                    self.isRolling = NO;
+                if (i == totalRollingTimes - 1) {
+                    __self.isRolling = NO;
                 }
             });
-//            if (i == 10 || i == 16) {
-//                rollingInterval *= 2;
-//            }
-            rollingInterval *= ROLLING_INTERVAL_INCREASE;
+
+            // 如果当前滚动次数小于额外滚动次数, 间隔时间就不要增加了
+            if (i >= plusRollingTimes) {
+                rollingInterval *= ROLLING_INTERVAL_INCREASE_TIMES;
+            }
             [NSThread sleepForTimeInterval:rollingInterval];
         }
     });

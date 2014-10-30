@@ -11,6 +11,6 @@
 
 @interface DiceGame : RandomGame
 
-- (instancetype)initWithFaceCount:(uint)faceCount;
+- (instancetype)initWithFaceCount:(NSUInteger)sidesNumber;
 
 @end

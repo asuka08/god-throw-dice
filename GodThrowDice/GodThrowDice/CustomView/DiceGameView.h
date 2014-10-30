@@ -12,6 +12,6 @@
 
 @property (strong,nonatomic) NSString *showingOptionName;
 
-- (void)startAnimateRolling:(NSString *)targetOptionName options:(NSMutableArray *)options;
+- (void)startAnimateRollingWithTarget:(NSString *)targetOptionName options:(NSMutableArray *)options plusTimeSeconds:(double)plusTimeSeconds;
 
 @end

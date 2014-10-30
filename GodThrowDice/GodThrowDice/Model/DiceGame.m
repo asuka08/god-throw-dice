@@ -18,16 +18,16 @@
     return self;
 }
 
-- (instancetype)initWithFaceCount:(uint)faceCount
+- (instancetype)initWithFaceCount:(uint)sidesNumber
 {
     self = [super init];
     
-    if (faceCount < 1) {
-        faceCount = 1;
+    if (sidesNumber < 1) {
+        sidesNumber = 1;
     }
     
     if (self) {
-        for (uint i = 1; i <= faceCount; i++) {
+        for (uint i = 1; i <= sidesNumber; i++) {
             NSString *name = [NSString stringWithFormat:@"%d", i];
             [self.optionItems addObject:[[RandomOptionItem alloc] initWithName:name weight:1]];
         }

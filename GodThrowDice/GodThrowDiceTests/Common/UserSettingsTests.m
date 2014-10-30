@@ -1,18 +1,19 @@
 //
-//  GodThrowDiceTests.m
-//  GodThrowDiceTests
+//  UserSettingsTests.m
+//  GodThrowDice
 //
-//  Created by asuka on 14-5-14.
+//  Created by asuka on 14-10-25.
 //  Copyright (c) 2014年 verysb. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "UserSettings.h"
 
-@interface GodThrowDiceTests : XCTestCase
+@interface UserSettingsTests : XCTestCase
 
 @end
 
-@implementation GodThrowDiceTests
+@implementation UserSettingsTests
 
 - (void)setUp
 {
@@ -26,9 +27,12 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testSettings
 {
-    // XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    UserSettings *settings = [UserSettings sharedInstance];
+    NSLog(@"dice_quantity : %d", settings.dice_quantity);
+    settings.dice_quantity = 6;
+    NSLog(@"dice_quantity : %d", settings.dice_quantity);
 }
 
 @end
