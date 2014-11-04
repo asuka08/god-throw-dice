@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		1714807919FE81140052A2F3 /* CoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1714807419FE81140052A2F3 /* CoinGameViewController.m */; };
 		1714807A19FE81140052A2F3 /* DiceGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1714807619FE81140052A2F3 /* DiceGameViewController.m */; };
-		1714807B19FE81140052A2F3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1714807819FE81140052A2F3 /* SettingTableViewController.m */; };
 		17986F5B1926026B00177741 /* CoinGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17986F5A1926026B00177741 /* CoinGameView.m */; };
 		17C7256519FB57810093A1DF /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C7256419FB57810093A1DF /* UserSettings.m */; };
 		17C7256819FB86C90093A1DF /* UserSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C7256719FB86C90093A1DF /* UserSettingsTests.m */; };
-		17C7256A19FBB1860093A1DF /* UserSettingsOption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17C7256919FBB1860093A1DF /* UserSettingsOption.plist */; };
 		17D2C46D198BE9C100F0AB8B /* DiceGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2C46C198BE9C100F0AB8B /* DiceGameView.m */; };
 		17D2C471198BEB5E00F0AB8B /* OptionDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2C470198BEB5E00F0AB8B /* OptionDict.m */; };
 		17ED1CB919236C050042D968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED1CB819236C050042D968 /* Foundation.framework */; };
@@ -34,6 +32,7 @@
 		17ED1D02192463810042D968 /* RandomGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1CFF192463810042D968 /* RandomGame.m */; };
 		17ED1D05192463B30042D968 /* RouletteGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1D04192463B30042D968 /* RouletteGame.m */; };
 		17ED1D09192466670042D968 /* RandomOptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED1D08192466670042D968 /* RandomOptionItem.m */; };
+		17F8F5441A020D0F00E3DB01 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8F5431A020D0F00E3DB01 /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +50,11 @@
 		1714807419FE81140052A2F3 /* CoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameViewController.m; path = Controller/CoinGameViewController.m; sourceTree = "<group>"; };
 		1714807519FE81140052A2F3 /* DiceGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceGameViewController.h; path = Controller/DiceGameViewController.h; sourceTree = "<group>"; };
 		1714807619FE81140052A2F3 /* DiceGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceGameViewController.m; path = Controller/DiceGameViewController.m; sourceTree = "<group>"; };
-		1714807719FE81140052A2F3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingTableViewController.h; path = Controller/SettingTableViewController.h; sourceTree = "<group>"; };
-		1714807819FE81140052A2F3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingTableViewController.m; path = Controller/SettingTableViewController.m; sourceTree = "<group>"; };
 		17986F591926026B00177741 /* CoinGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinGameView.h; path = CustomView/CoinGameView.h; sourceTree = "<group>"; };
 		17986F5A1926026B00177741 /* CoinGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameView.m; path = CustomView/CoinGameView.m; sourceTree = "<group>"; };
 		17C7256319FB57810093A1DF /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSettings.h; path = Common/UserSettings.h; sourceTree = "<group>"; };
 		17C7256419FB57810093A1DF /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSettings.m; path = Common/UserSettings.m; sourceTree = "<group>"; };
 		17C7256719FB86C90093A1DF /* UserSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSettingsTests.m; path = Common/UserSettingsTests.m; sourceTree = "<group>"; };
-		17C7256919FBB1860093A1DF /* UserSettingsOption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserSettingsOption.plist; sourceTree = "<group>"; };
 		17D2C46B198BE9C100F0AB8B /* DiceGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceGameView.h; path = CustomView/DiceGameView.h; sourceTree = "<group>"; };
 		17D2C46C198BE9C100F0AB8B /* DiceGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceGameView.m; path = CustomView/DiceGameView.m; sourceTree = "<group>"; };
 		17D2C46F198BEB5E00F0AB8B /* OptionDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionDict.h; path = Common/OptionDict.h; sourceTree = "<group>"; };
@@ -90,6 +86,8 @@
 		17ED1D04192463B30042D968 /* RouletteGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouletteGame.m; path = Model/RouletteGame.m; sourceTree = "<group>"; };
 		17ED1D07192466670042D968 /* RandomOptionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomOptionItem.h; path = Model/RandomOptionItem.h; sourceTree = "<group>"; };
 		17ED1D08192466670042D968 /* RandomOptionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomOptionItem.m; path = Model/RandomOptionItem.m; sourceTree = "<group>"; };
+		17F8F5421A020D0F00E3DB01 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsTableViewController.h; path = Controller/SettingsTableViewController.h; sourceTree = "<group>"; };
+		17F8F5431A020D0F00E3DB01 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsTableViewController.m; path = Controller/SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +125,12 @@
 		1714807219FE80FF0052A2F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				17F8F5421A020D0F00E3DB01 /* SettingsTableViewController.h */,
+				17F8F5431A020D0F00E3DB01 /* SettingsTableViewController.m */,
 				1714807319FE81140052A2F3 /* CoinGameViewController.h */,
 				1714807419FE81140052A2F3 /* CoinGameViewController.m */,
 				1714807519FE81140052A2F3 /* DiceGameViewController.h */,
 				1714807619FE81140052A2F3 /* DiceGameViewController.m */,
-				1714807719FE81140052A2F3 /* SettingTableViewController.h */,
-				1714807819FE81140052A2F3 /* SettingTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,7 +193,6 @@
 				17ED1CF3192462E80042D968 /* Model */,
 				17ED1CCA19236C050042D968 /* Main.storyboard */,
 				17ED1CD319236C050042D968 /* Images.xcassets */,
-				17C7256919FBB1860093A1DF /* UserSettingsOption.plist */,
 				1714806B19FE78AA0052A2F3 /* Tvc */,
 				17ED1CBF19236C050042D968 /* Supporting Files */,
 			);
@@ -345,7 +342,6 @@
 				17ED1CD419236C050042D968 /* Images.xcassets in Resources */,
 				17ED1CC319236C050042D968 /* InfoPlist.strings in Resources */,
 				17ED1CCC19236C050042D968 /* Main.storyboard in Resources */,
-				17C7256A19FBB1860093A1DF /* UserSettingsOption.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F8F5441A020D0F00E3DB01 /* SettingsTableViewController.m in Sources */,
 				1714807A19FE81140052A2F3 /* DiceGameViewController.m in Sources */,
 				17ED1D02192463810042D968 /* RandomGame.m in Sources */,
 				1714807919FE81140052A2F3 /* CoinGameViewController.m in Sources */,
@@ -374,7 +371,6 @@
 				17ED1D00192463810042D968 /* CoinGame.m in Sources */,
 				17C7256519FB57810093A1DF /* UserSettings.m in Sources */,
 				17ED1D01192463810042D968 /* DiceGame.m in Sources */,
-				1714807B19FE81140052A2F3 /* SettingTableViewController.m in Sources */,
 				17D2C471198BEB5E00F0AB8B /* OptionDict.m in Sources */,
 				17ED1D09192466670042D968 /* RandomOptionItem.m in Sources */,
 				17ED1D05192463B30042D968 /* RouletteGame.m in Sources */,

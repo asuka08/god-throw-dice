@@ -23,13 +23,18 @@ typedef struct LayoutIndex LayoutIndex;
 @property (strong,nonatomic) DiceGame *game;
 @property (weak, nonatomic) IBOutlet UIView *view_dicePanel;
 @property (strong,nonatomic) NSMutableArray *diceViewList;
+@property (nonatomic) BOOL isSettingsChanged;
 
-@property (nonatomic) int diceQuantity;
+@property (nonatomic) NSUInteger diceQuantity;
 
 
 @end
 
 @implementation DiceGameViewController
+{
+    NSUInteger loadedDiceQuantity;
+    NSUInteger loadedDiceSidesNumber;
+}
 
 #pragma mark - 属性
 
@@ -49,10 +54,22 @@ typedef struct LayoutIndex LayoutIndex;
     return _diceViewList;
 }
 
-- (int)diceQuantity
+- (NSUInteger)diceQuantity
 {
     return [UserSettings sharedInstance].dice_quantity;
 }
+
+- (BOOL)isSettingsChanged
+{
+    BOOL changed = NO;
+    if ([UserSettings sharedInstance].dice_quantity != loadedDiceQuantity
+        || [UserSettings sharedInstance].dice_sidesNumber != loadedDiceSidesNumber)
+    {
+        changed = YES;
+    }
+    return changed;
+}
+
 
 
 #pragma mark - 方法
@@ -65,7 +82,9 @@ typedef struct LayoutIndex LayoutIndex;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self initDicePanel];
+    if (self.isSettingsChanged) {
+        [self initDicePanel];
+    }
 }
 
 /**
@@ -76,6 +95,8 @@ typedef struct LayoutIndex LayoutIndex;
     for (UIView *subview in self.view_dicePanel.subviews) {
         [subview removeFromSuperview];
     }
+    
+    [self resetDiceGame];
     
     for (int i = 0; i < self.diceQuantity; i++) {
         CGRect frame;
@@ -88,6 +109,14 @@ typedef struct LayoutIndex LayoutIndex;
         [self.view_dicePanel addSubview:view];
         view.showingOptionName = [self.game getSelectedItem].optionName;
     }
+    
+    self->loadedDiceQuantity = [UserSettings sharedInstance].dice_quantity;
+    self->loadedDiceSidesNumber = [UserSettings sharedInstance].dice_sidesNumber;
+}
+
+- (void)resetDiceGame
+{
+    self.game = [[DiceGame alloc]initWithFaceCount:[UserSettings sharedInstance].dice_sidesNumber];
 }
 
 #pragma mark - 骰子宽高坐标

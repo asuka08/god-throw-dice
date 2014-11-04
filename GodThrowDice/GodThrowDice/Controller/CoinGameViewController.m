@@ -65,7 +65,7 @@
 
 - (void)notificationObserver_flipFinished:(NSNotification *)notification
 {
-    NSLog(@"---- notification received");
+//    NSLog(@"---- notification received");
     if ([notification.object isKindOfClass:[NSString class]]) {
         NSString *s = (NSString *)notification.object;
         self.label_title.text = [s uppercaseString];
@@ -77,7 +77,12 @@
 
 - (IBAction)gameView_tap:(UITapGestureRecognizer *)sender
 {
-    
+    [self startCoinFlipping];
+}
+
+
+- (void)startCoinFlipping
+{
     RandomOptionItem *item = [self.game generateRandomAndGetSelectedItem];
     self.label_title.text = @"FLIPPING...";
     [self.gameView startAnimateFlip:item.optionName];

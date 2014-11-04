@@ -20,9 +20,6 @@
                             <view tag="1000" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adG-6e-vow" customClass="CoinGameView">
                                 <rect key="frame" x="80" y="204" width="160" height="160"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ROF-HC-RWo" appends="YES" id="hco-hs-rt5"/>
-                                </connections>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TAP COIN TO FLIP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SG-fD-3cu">
                                 <rect key="frame" x="20" y="24" width="280" height="21"/>
@@ -32,8 +29,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ROF-HC-RWo" appends="YES" id="fIw-JA-5v6"/>
+                        </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="COIN" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="COIN" image="tabbarIcon_coin" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="gameView" destination="adG-6e-vow" id="dsm-W3-qyA"/>
                         <outlet property="label_title" destination="0SG-fD-3cu" id="NTq-Fy-3cj"/>
@@ -48,16 +49,16 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--Setting Table View Controller-->
+        <!--Settings Table View Controller-->
         <scene sceneID="n3s-wX-IqP">
             <objects>
-                <tableViewController id="wDS-9x-8cM" customClass="SettingTableViewController" sceneMemberID="viewController">
+                <tableViewController id="wDS-9x-8cM" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="M0F-cU-0pg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell_picker" textLabel="shf-5B-p4A" detailTextLabel="P8u-Dq-Hmx" style="IBUITableViewCellStyleValue1" id="aet-fv-s7Z">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell_text" textLabel="shf-5B-p4A" detailTextLabel="P8u-Dq-Hmx" style="IBUITableViewCellStyleValue1" id="aet-fv-s7Z">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aet-fv-s7Z" id="jT3-Vw-13y">
@@ -81,14 +82,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
-                            </tableViewCell>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_switch" id="YCF-r2-QQY">
-                                <rect key="frame" x="0.0" y="163" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YCF-r2-QQY" id="w87-Kt-0tQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -136,7 +129,7 @@
                             <outletCollection property="gestureRecognizers" destination="nDt-Hs-xD7" appends="YES" id="4Ob-gB-d3u"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="DICE" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="DICE" image="tabbarIcon_dice" id="Z7h-1E-pvt"/>
                     <connections>
                         <outlet property="view_dicePanel" destination="Lmc-uJ-aZ2" id="luN-c9-eaa"/>
                     </connections>
@@ -161,9 +154,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="HSH-SY-X4Y" kind="relationship" relationship="viewControllers" id="ymk-d5-Pp0"/>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
+                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="HSH-SY-X4Y" kind="relationship" relationship="viewControllers" id="ymk-d5-Pp0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -174,7 +167,7 @@
         <scene sceneID="g23-D2-DM8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HSH-SY-X4Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="bre-qz-H2u"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="tabbarIcon_settings" id="bre-qz-H2u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LDM-QO-EO4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -191,8 +184,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="tabbarIcon_coin" width="60" height="60"/>
+        <image name="tabbarIcon_dice" width="60" height="60"/>
+        <image name="tabbarIcon_settings" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

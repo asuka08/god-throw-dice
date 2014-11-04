@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 verysb. All rights reserved.
 //
 
-#import "SettingTableViewController.h"
+#import "SettingsTableViewController.h"
 #import "UserSettings.h"
 
-@interface SettingTableViewController () <UIActionSheetDelegate>
+@interface SettingsTableViewController () <UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSArray *diceQuantityOptions;     // of NSString
 @property (strong, nonatomic) NSArray *diceMaxNumberOptions;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation SettingTableViewController
+@implementation SettingsTableViewController
 
 
 #pragma mark - 常量
@@ -25,12 +25,12 @@
 #define SECTION_INDEX_DICE 0
 #define SECTION_INDEX_COIN 1
 #define ROW_INDEX_DICE_QUANTITY 0
-#define ROW_INDEX_DICE_MAX_NUMBER 1
+#define ROW_INDEX_DICE_SIDES_NUMBER 1
 
 #define NUMBER_OF_SECTIONS 1
 
 #define DICE_QUANTITY_OPTIONS @"1", @"2", @"3", @"4", @"5", @"6"
-#define DICE_MAX_NUMBER_OPTIONS @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40", @"41", @"42", @"43", @"44", @"45", @"46", @"47", @"48", @"49", @"50", @"51", @"52", @"53", @"54", @"55", @"56", @"57", @"58", @"59", @"60", @"61", @"62", @"63", @"64", @"65", @"66", @"67", @"68", @"69", @"70", @"71", @"72", @"73", @"74", @"75", @"76", @"77", @"78", @"79", @"80", @"81", @"82", @"83", @"84", @"85", @"86", @"87", @"88", @"89", @"90", @"91", @"92", @"93", @"94", @"95", @"96", @"97", @"98", @"99", @"100"
+#define DICE_SIDES_NUMBER_OPTIONS @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40", @"41", @"42", @"43", @"44", @"45", @"46", @"47", @"48", @"49", @"50", @"51", @"52", @"53", @"54", @"55", @"56", @"57", @"58", @"59", @"60", @"61", @"62", @"63", @"64", @"65", @"66", @"67", @"68", @"69", @"70", @"71", @"72", @"73", @"74", @"75", @"76", @"77", @"78", @"79", @"80", @"81", @"82", @"83", @"84", @"85", @"86", @"87", @"88", @"89", @"90", @"91", @"92", @"93", @"94", @"95", @"96", @"97", @"98", @"99", @"100"
 
 
 #pragma mark - 属性
@@ -46,7 +46,7 @@
 - (NSArray *)diceMaxNumberOptions
 {
     if (!_diceMaxNumberOptions) {
-        _diceMaxNumberOptions = [NSArray arrayWithObjects:DICE_MAX_NUMBER_OPTIONS, nil];
+        _diceMaxNumberOptions = [NSArray arrayWithObjects:DICE_SIDES_NUMBER_OPTIONS, nil];
     }
     return _diceMaxNumberOptions;
 }
@@ -101,7 +101,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_picker"
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_text"
                                                             forIndexPath:indexPath];
     
     if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_QUANTITY) {
@@ -110,8 +110,8 @@
         
     }
     
-    else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_MAX_NUMBER) {
-        cell.textLabel.text = @"Dice Max Number";
+    else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER) {
+        cell.textLabel.text = @"Dice Sides Number";
         cell.detailTextLabel.text = [UserSettings sharedInstance].dice_sidesNumber_string;
     }
     
@@ -147,7 +147,7 @@
 {
     if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_QUANTITY) {
         [self showOptionsForDiceQuantity];
-    } else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_MAX_NUMBER) {
+    } else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER) {
         [self showOptionsForDiceMaxNumber];
     }
     
@@ -168,7 +168,7 @@
     }
     
     else if (indexPath.section == SECTION_INDEX_DICE
-               && indexPath.row == ROW_INDEX_DICE_MAX_NUMBER
+               && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER
                && buttonIndex < self.diceMaxNumberOptions.count)
     {
         NSString *selectedOption = self.diceMaxNumberOptions[buttonIndex];
@@ -200,11 +200,11 @@
 
 - (void)showOptionsForDiceMaxNumber
 {
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Select Dice Max Number"
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Select Dice Sides Number"
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
                                      destructiveButtonTitle:nil
-                                          otherButtonTitles:DICE_MAX_NUMBER_OPTIONS, nil];
+                                          otherButtonTitles:DICE_SIDES_NUMBER_OPTIONS, nil];
     [as showInView:self.view];
 }
 

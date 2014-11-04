@@ -156,7 +156,7 @@ static const float RADIO_FULL_MOON = 1.0;
 // 开始翻转动画
 - (void)startAnimateFlip:(NSString *)targetOption
 {
-    NSLog(@"---- start flip");
+//    NSLog(@"---- start flip");
     if (!self.isFlipping) {
         self.isFlipping = YES;
         self.currentDuration = START_DURATION;
@@ -186,7 +186,7 @@ static const float RADIO_FULL_MOON = 1.0;
 // 执行翻转动画
 - (void)animateFlip
 {
-    NSLog( @"---- drtn: %f, trd: %f, cnt: %lu, left: %lu, op: %@-%@", self.currentDuration, self.tempTargetRadio, (unsigned long)self.flipCount, (unsigned long)self.flipLeft, self.finalTargetOption, self.tempTargetOption );
+//    NSLog( @"---- drtn: %f, trd: %f, cnt: %lu, left: %lu, op: %@-%@", self.currentDuration, self.tempTargetRadio, (unsigned long)self.flipCount, (unsigned long)self.flipLeft, self.finalTargetOption, self.tempTargetOption );
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:self.currentDuration];
@@ -208,7 +208,7 @@ static const float RADIO_FULL_MOON = 1.0;
         self.flipLeft += 2;
         [self continueAnimateFlip];
     } else {
-        NSLog(@"---- end flip");
+//        NSLog(@"---- end flip");
         self.isFlipping = NO;
         NSNotification *notification = [NSNotification notificationWithName:COIN_GAME_NOTIFICATION_FLIP_FINISHED object:self.finalTargetOption];
         [[NSNotificationCenter defaultCenter]postNotification:notification];

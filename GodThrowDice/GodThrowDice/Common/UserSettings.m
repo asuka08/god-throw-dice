@@ -37,7 +37,7 @@
 
 - (NSString *)dice_quantity_string
 {
-    return [NSString stringWithFormat:@"%d", self.dice_quantity];
+    return [NSString stringWithFormat:@"%lu", (unsigned long)self.dice_quantity];
 }
 
 // 骰子最大点数
@@ -59,7 +59,7 @@
 
 - (NSString *)dice_sidesNumber_string
 {
-    return [NSString stringWithFormat:@"%d", self.dice_sidesNumber];
+    return [NSString stringWithFormat:@"%lu", (unsigned long)self.dice_sidesNumber];
 }
 
 #pragma mark - 单例实现
