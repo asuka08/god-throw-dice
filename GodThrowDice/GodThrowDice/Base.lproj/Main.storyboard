@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings Table View Controller - Settings-->
         <scene sceneID="n3s-wX-IqP">
             <objects>
                 <tableViewController id="wDS-9x-8cM" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                             <outlet property="delegate" destination="wDS-9x-8cM" id="qFa-dP-ZH9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ook-LL-OLK"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Ook-LL-OLK"/>
                     <connections>
                         <outlet property="tableView_settings" destination="M0F-cU-0pg" id="E0I-cL-AzH"/>
                     </connections>
@@ -154,8 +154,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="HSH-SY-X4Y" kind="relationship" relationship="viewControllers" id="ymk-d5-Pp0"/>
                     </connections>
                 </tabBarController>

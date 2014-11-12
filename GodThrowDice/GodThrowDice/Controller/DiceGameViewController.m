@@ -7,7 +7,9 @@
 //
 
 #import "DiceGameViewController.h"
-#import "DiceGameView.h"
+#import "DiceGameBaseView.h"
+#import "DiceGameNumberView.h"
+#import "DiceGameDotsView.h"
 #import "DiceGame.h"
 #import "RandomOptionItem.h"
 #import "UserSettings.h"
@@ -34,6 +36,7 @@ typedef struct LayoutIndex LayoutIndex;
 {
     NSUInteger loadedDiceQuantity;
     NSUInteger loadedDiceSidesNumber;
+    DiceStyle loadedDiceStyle;
 }
 
 #pragma mark - 属性
@@ -63,7 +66,8 @@ typedef struct LayoutIndex LayoutIndex;
 {
     BOOL changed = NO;
     if ([UserSettings sharedInstance].dice_quantity != loadedDiceQuantity
-        || [UserSettings sharedInstance].dice_sidesNumber != loadedDiceSidesNumber)
+        || [UserSettings sharedInstance].dice_sidesNumber != loadedDiceSidesNumber
+        || [UserSettings sharedInstance].dice_style != loadedDiceStyle)
     {
         changed = YES;
     }
@@ -105,18 +109,41 @@ typedef struct LayoutIndex LayoutIndex;
         CGSize size = { width, width };
         frame.size = size;
         frame.origin = [self getPoint:i];
-        DiceGameView *view = [[DiceGameView alloc]initWithFrame:frame];
-        [self.view_dicePanel addSubview:view];
+        DiceGameBaseView *view = [self generateDiceGameViewWithFrame:frame];
         view.showingOptionName = [self.game getSelectedItem].optionName;
+        [self.view_dicePanel addSubview:view];
+
     }
     
     self->loadedDiceQuantity = [UserSettings sharedInstance].dice_quantity;
     self->loadedDiceSidesNumber = [UserSettings sharedInstance].dice_sidesNumber;
+    self->loadedDiceStyle = [UserSettings sharedInstance].dice_style;
 }
 
+/**
+ *  重置游戏
+ */
 - (void)resetDiceGame
 {
     self.game = [[DiceGame alloc]initWithFaceCount:[UserSettings sharedInstance].dice_sidesNumber];
+}
+
+/**
+ *  获取骰子View工厂方法
+ *
+ *  @return 骰子View
+ */
+- (DiceGameBaseView *)generateDiceGameViewWithFrame:(CGRect)frame
+{
+    DiceGameBaseView *view = nil;
+    
+    if ([UserSettings sharedInstance].dice_style == DiceStyleNumber) {
+        view = [[DiceGameNumberView alloc] initWithFrame:frame];
+    } else if ([UserSettings sharedInstance].dice_style == DiceStyleDots) {
+        view = [[DiceGameDotsView alloc] initWithFrame:frame];
+    }
+    
+    return view;
 }
 
 #pragma mark - 骰子宽高坐标
@@ -367,9 +394,9 @@ typedef struct LayoutIndex LayoutIndex;
 {
     uint i = 0;
     for (id view in self.view_dicePanel.subviews) {
-        if ([view isKindOfClass:[DiceGameView class]]) {
+        if ([view isKindOfClass:[DiceGameBaseView class]]) {
             RandomOptionItem *option =[self.game generateRandomAndGetSelectedItem];
-            DiceGameView *diceView = (DiceGameView *)view;
+            DiceGameBaseView *diceView = (DiceGameBaseView *)view;
             double plusTime = 0.5 * i;
             [diceView startAnimateRollingWithTarget:option.optionName options:self.game.optionItems plusTimeSeconds:plusTime];
             i++;

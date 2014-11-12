@@ -12,7 +12,9 @@
 @interface SettingsTableViewController () <UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSArray *diceQuantityOptions;     // of NSString
-@property (strong, nonatomic) NSArray *diceMaxNumberOptions;
+@property (strong, nonatomic) NSArray *diceMaxNumberOptions;    // of NSString
+@property (strong, nonatomic) NSArray *diceStyleOptions;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView_settings;
 
 @end
@@ -26,11 +28,15 @@
 #define SECTION_INDEX_COIN 1
 #define ROW_INDEX_DICE_QUANTITY 0
 #define ROW_INDEX_DICE_SIDES_NUMBER 1
+#define ROW_INDEX_DICE_STYLE 2
 
 #define NUMBER_OF_SECTIONS 1
+#define NUMBER_OF_ROWS_IN_DICE 3
+#define NUMBER_OF_ROWS_IN_COIN 0
 
 #define DICE_QUANTITY_OPTIONS @"1", @"2", @"3", @"4", @"5", @"6"
-#define DICE_SIDES_NUMBER_OPTIONS @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40", @"41", @"42", @"43", @"44", @"45", @"46", @"47", @"48", @"49", @"50", @"51", @"52", @"53", @"54", @"55", @"56", @"57", @"58", @"59", @"60", @"61", @"62", @"63", @"64", @"65", @"66", @"67", @"68", @"69", @"70", @"71", @"72", @"73", @"74", @"75", @"76", @"77", @"78", @"79", @"80", @"81", @"82", @"83", @"84", @"85", @"86", @"87", @"88", @"89", @"90", @"91", @"92", @"93", @"94", @"95", @"96", @"97", @"98", @"99", @"100"
+#define DICE_SIDES_NUMBER_OPTIONS @"4", @"6", @"8", @"10", @"12", @"20", @"100" //, @"2", @"3", @"4", @"5", @"6",  @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40", @"41", @"42", @"43", @"44", @"45", @"46", @"47", @"48", @"49", @"50", @"51", @"52", @"53", @"54", @"55", @"56", @"57", @"58", @"59", @"60", @"61", @"62", @"63", @"64", @"65", @"66", @"67", @"68", @"69", @"70", @"71", @"72", @"73", @"74", @"75", @"76", @"77", @"78", @"79", @"80", @"81", @"82", @"83", @"84", @"85", @"86", @"87", @"88", @"89", @"90", @"91", @"92", @"93", @"94", @"95", @"96", @"97", @"98", @"99", @"100"
+#define DICE_STYLE_OPTIOINS @"Number", @"Dots (6 sides or less)"
 
 
 #pragma mark - 属性
@@ -49,6 +55,14 @@
         _diceMaxNumberOptions = [NSArray arrayWithObjects:DICE_SIDES_NUMBER_OPTIONS, nil];
     }
     return _diceMaxNumberOptions;
+}
+
+- (NSArray *)diceStyleOptions
+{
+    if (!_diceStyleOptions) {
+        _diceStyleOptions = [NSArray arrayWithObjects:DICE_STYLE_OPTIOINS, nil];
+    }
+    return _diceStyleOptions;
 }
 
 
@@ -91,9 +105,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if (section == 0) {
-        return 2;
+    if (section == SECTION_INDEX_DICE) {
+        return NUMBER_OF_ROWS_IN_DICE;
     }
     return 0;
 }
@@ -113,6 +126,11 @@
     else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER) {
         cell.textLabel.text = @"Dice Sides Number";
         cell.detailTextLabel.text = [UserSettings sharedInstance].dice_sidesNumber_string;
+    }
+    
+    else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_STYLE) {
+        cell.textLabel.text = @"Dice Style";
+        cell.detailTextLabel.text = [UserSettings sharedInstance].dice_style_string;
     }
     
     return cell;
@@ -149,6 +167,8 @@
         [self showOptionsForDiceQuantity];
     } else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER) {
         [self showOptionsForDiceMaxNumber];
+    } else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_STYLE) {
+        [self showOptionsForDiceStyle];
     }
     
 }
@@ -162,19 +182,43 @@
         && indexPath.row == ROW_INDEX_DICE_QUANTITY
         && buttonIndex < self.diceQuantityOptions.count)
     {
+        // 处理骰子数量ActionSheet选项点击
         NSString *selectedOption = self.diceQuantityOptions[buttonIndex];
         [UserSettings sharedInstance].dice_quantity = selectedOption.integerValue;
-        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_quantity_string];
+//        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_quantity_string];
     }
     
     else if (indexPath.section == SECTION_INDEX_DICE
                && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER
                && buttonIndex < self.diceMaxNumberOptions.count)
     {
+        // 处理骰子面数ActionSheet选项点击
         NSString *selectedOption = self.diceMaxNumberOptions[buttonIndex];
         [UserSettings sharedInstance].dice_sidesNumber = selectedOption.integerValue;
-        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_sidesNumber_string];
+//        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_sidesNumber_string];
+        
+        if ([UserSettings sharedInstance].dice_sidesNumber > 6
+            &&[UserSettings sharedInstance].dice_style != DiceStyleNumber) {
+            [UserSettings sharedInstance].dice_style = DiceStyleNumber;
+        }
     }
+    
+    else if (indexPath.section == SECTION_INDEX_DICE
+             && indexPath.row == ROW_INDEX_DICE_STYLE
+             && buttonIndex < self.diceStyleOptions.count)
+    {
+        [UserSettings sharedInstance].dice_style_string = self.diceStyleOptions[buttonIndex];
+        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_style_string];
+        
+        if ([UserSettings sharedInstance].dice_style == DiceStyleDots
+            && [UserSettings sharedInstance].dice_sidesNumber > 6) {
+            [UserSettings sharedInstance].dice_sidesNumber = 6;
+        }
+    }
+    
+    [self.tableView reloadData];
+    
+    
 }
 
 #pragma mark - 方法
@@ -184,6 +228,7 @@
     UITableViewCell *cell = [self.tableView_settings cellForRowAtIndexPath:indexPath];
     cell.detailTextLabel.text = value;
 }
+
 
 #pragma mark - 显示选项 ActionSheet
 
@@ -205,6 +250,16 @@
                                           cancelButtonTitle:@"Cancel"
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:DICE_SIDES_NUMBER_OPTIONS, nil];
+    [as showInView:self.view];
+}
+
+- (void)showOptionsForDiceStyle
+{
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Select Dice Style"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                      destructiveButtonTitle:nil
+                                           otherButtonTitles:DICE_STYLE_OPTIOINS, nil];
     [as showInView:self.view];
 }
 

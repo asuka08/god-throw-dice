@@ -30,9 +30,11 @@
 - (void)testSettings
 {
     UserSettings *settings = [UserSettings sharedInstance];
-    NSLog(@"dice_quantity : %d", settings.dice_quantity);
+    NSLog(@"dice_quantity : %lu", (unsigned long)settings.dice_quantity);
     settings.dice_quantity = 6;
-    NSLog(@"dice_quantity : %d", settings.dice_quantity);
+    NSLog(@"dice_quantity : %lu", (unsigned long)settings.dice_quantity);
 }
+
+
 
 @end

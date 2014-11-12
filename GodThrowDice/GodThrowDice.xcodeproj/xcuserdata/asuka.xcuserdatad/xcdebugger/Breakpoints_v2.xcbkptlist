@@ -9,12 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GodThrowDice/CustomView/DiceGameView.m"
-            timestampString = "433404330.917104"
+            filePath = "GodThrowDice/CustomView/DiceGameBaseView.m"
+            timestampString = "437405176.845374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-startAnimateRollingWithTarget:options:plusTimeSeconds:"
             landmarkType = "5">
          </BreakpointContent>

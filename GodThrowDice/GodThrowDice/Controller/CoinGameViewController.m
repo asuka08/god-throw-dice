@@ -53,6 +53,8 @@
                                              selector:@selector(notificationObserver_flipFinished:)
                                                  name:COIN_GAME_NOTIFICATION_FLIP_FINISHED
                                                object:nil];
+    self.label_title.text = @"TAP COIN TO FLIP";
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

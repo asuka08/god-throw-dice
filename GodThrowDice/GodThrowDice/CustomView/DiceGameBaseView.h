@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiceGameView : UIView
 
+
+@interface DiceGameBaseView : UIView
+
+/**
+ *  当前显示的的骰子点数
+ */
 @property (strong,nonatomic) NSString *showingOptionName;
 
 - (void)startAnimateRollingWithTarget:(NSString *)targetOptionName options:(NSMutableArray *)options plusTimeSeconds:(double)plusTimeSeconds;

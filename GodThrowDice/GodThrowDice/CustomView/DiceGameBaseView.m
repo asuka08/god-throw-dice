@@ -6,27 +6,26 @@
 //  Copyright (c) 2014年 verysb. All rights reserved.
 //
 
-#import "DiceGameView.h"
+#import "DiceGameBaseView.h"
 #import "RandomOptionItem.h"
 
-@interface DiceGameView()
+@interface DiceGameBaseView()
 
-// 子View, UILabel
-@property (strong,nonatomic) UILabel *subLabel;
+
 
 // 是否正在滚动. 当正在滚动时, 不再接受新的滚动
 @property (nonatomic) BOOL isRolling;
 
 @end
 
-@implementation DiceGameView
+@implementation DiceGameBaseView
 
 #pragma mark - 属性
 
 // 滚动次数
-#define ROLLING_TIMES 20
+#define ROLLING_TIMES 10
 // 滚动间隔时间
-#define ROLLING_INTERVAL_SECONDS_INIT 0.04
+#define ROLLING_INTERVAL_SECONDS_INIT 0.08
 // 滚动间隔时间增加倍数
 #define ROLLING_INTERVAL_INCREASE_TIMES 1.1
 
@@ -45,7 +44,7 @@
 - (void)setShowingOptionName:(NSString *)showingOption
 {
     _showingOptionName = showingOption;
-    [self setLableText];
+    [self updateDisplay];
 }
 
 
@@ -55,6 +54,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        NSLog(@"initWithFrame");
         [self setup];
     }
     return self;
@@ -65,6 +65,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        NSLog(@"initWithCoder");
         [self setup];
     }
     return self;
@@ -76,58 +77,19 @@
  */
 - (void)setup
 {
-    [self setupFacade];
-    [self addSubLabel];
+
 }
+
 
 
 /**
- *  初始化外观
+ *  更新显示
  */
-- (void)setupFacade
+- (void)updateDisplay
 {
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.cornerRadius = [self getFittingSize] / 10;
-    self.layer.borderWidth = [self getFittingSize] / 40;
-    // self.layer.borderColor = [UIColor redColor].CGColor;
-    self.opaque = NO;
-    self.contentMode = UIViewContentModeRedraw;
+    
 }
 
-/**
- *  添加Label子View
- */
-- (void)addSubLabel
-{
-    CGRect rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
-    self.subLabel = [[UILabel alloc] initWithFrame:rect];
-    self.subLabel.textAlignment = NSTextAlignmentCenter;
-    self.subLabel.font = [UIFont systemFontOfSize:[self getFittingSize]];
-    self.subLabel.adjustsFontSizeToFitWidth = YES;
-    [self addSubview:self.subLabel];
-}
-
-
-/**
- *  设置文字
- */
-- (void)setLableText
-{
-    [self.subLabel setText:self.showingOptionName];
-}
-
-
-/**
- *  取字体大小等合适尺寸, 取宽和高中较小的一个
- *
- *  @return CGFloat
- */
-- (CGFloat)getFittingSize
-{
-    CGFloat width = self.bounds.size.width;
-    CGFloat height = self.bounds.size.height;
-    return width < height ? width : height;
-}
 
 
 
@@ -158,7 +120,7 @@
     
     self.isRolling = YES;
     
-    __weak DiceGameView *__self = self;
+    __weak DiceGameBaseView *__self = self;
     dispatch_queue_t q = dispatch_queue_create("dice_rolling_anime", NULL);
     dispatch_async(q, ^{
         int index;

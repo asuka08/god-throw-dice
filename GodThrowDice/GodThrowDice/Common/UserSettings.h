@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  骰子显示方式枚举
+ */
+typedef NS_ENUM(NSUInteger, DiceStyle){
+    /**
+     *  数字方式
+     */
+    DiceStyleNumber = 0,
+    /**
+     *  圆点方式
+     */
+    DiceStyleDots = 1
+};
 
 
 /**
@@ -24,7 +37,7 @@
 /**
  *  骰子数量 字符串
  */
-@property (nonatomic)NSString *dice_quantity_string;
+@property (nonatomic, readonly)NSString *dice_quantity_string;
 
 /**
  *  骰子面数
@@ -34,7 +47,17 @@
 /**
  *  骰子面数 字符串
  */
-@property (nonatomic)NSString *dice_sidesNumber_string;
+@property (nonatomic, readonly)NSString *dice_sidesNumber_string;
+
+/**
+ *  骰子显示方式
+ */
+@property (nonatomic) DiceStyle dice_style;
+
+/**
+ *  骰子显示方式 字符串
+ */
+@property (nonatomic) NSString *dice_style_string;
 
 /**
  *  获取单例

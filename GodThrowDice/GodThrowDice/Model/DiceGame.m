@@ -18,7 +18,7 @@
     return self;
 }
 
-- (instancetype)initWithFaceCount:(uint)sidesNumber
+- (instancetype)initWithFaceCount:(NSUInteger)sidesNumber
 {
     self = [super init];
     
