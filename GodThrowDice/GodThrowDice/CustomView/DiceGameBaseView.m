@@ -54,7 +54,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"initWithFrame");
         [self setup];
     }
     return self;
@@ -65,7 +64,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"initWithCoder");
         [self setup];
     }
     return self;
@@ -140,7 +138,6 @@
                     optionTextToShow = item.optionName;
                 } while ([optionTextToShow isEqualToString:self.showingOptionName]);
             }
-//            NSLog(@"for i = %d, optionTextToShow: %@, target: %@", i, optionTextToShow, targetOptionName);
             dispatch_async( dispatch_get_main_queue(), ^{
                 __self.showingOptionName = optionTextToShow;
                 if (i == totalRollingTimes - 1) {

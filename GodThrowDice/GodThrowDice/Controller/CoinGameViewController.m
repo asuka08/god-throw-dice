@@ -53,7 +53,7 @@
                                              selector:@selector(notificationObserver_flipFinished:)
                                                  name:COIN_GAME_NOTIFICATION_FLIP_FINISHED
                                                object:nil];
-    self.label_title.text = @"TAP COIN TO FLIP";
+    self.label_title.text = @"TAP or SHAKE";
     
 }
 
@@ -75,9 +75,14 @@
 }
 
 
-#pragma mark - 手势
+#pragma mark - 手势, 摇一摇
 
 - (IBAction)gameView_tap:(UITapGestureRecognizer *)sender
+{
+    [self startCoinFlipping];
+}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     [self startCoinFlipping];
 }

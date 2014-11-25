@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1714807919FE81140052A2F3 /* CoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1714807419FE81140052A2F3 /* CoinGameViewController.m */; };
 		1714807A19FE81140052A2F3 /* DiceGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1714807619FE81140052A2F3 /* DiceGameViewController.m */; };
+		1797C1F11A246779005A10FB /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1797C1F01A246779005A10FB /* todo.txt */; };
 		17986F5B1926026B00177741 /* CoinGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17986F5A1926026B00177741 /* CoinGameView.m */; };
 		17C7256519FB57810093A1DF /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C7256419FB57810093A1DF /* UserSettings.m */; };
 		17C7256819FB86C90093A1DF /* UserSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C7256719FB86C90093A1DF /* UserSettingsTests.m */; };
@@ -52,6 +53,7 @@
 		1714807419FE81140052A2F3 /* CoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameViewController.m; path = Controller/CoinGameViewController.m; sourceTree = "<group>"; };
 		1714807519FE81140052A2F3 /* DiceGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceGameViewController.h; path = Controller/DiceGameViewController.h; sourceTree = "<group>"; };
 		1714807619FE81140052A2F3 /* DiceGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceGameViewController.m; path = Controller/DiceGameViewController.m; sourceTree = "<group>"; };
+		1797C1F01A246779005A10FB /* todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = todo.txt; path = Doc/todo.txt; sourceTree = "<group>"; };
 		17986F591926026B00177741 /* CoinGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinGameView.h; path = CustomView/CoinGameView.h; sourceTree = "<group>"; };
 		17986F5A1926026B00177741 /* CoinGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinGameView.m; path = CustomView/CoinGameView.m; sourceTree = "<group>"; };
 		17C7256319FB57810093A1DF /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSettings.h; path = Common/UserSettings.h; sourceTree = "<group>"; };
@@ -120,14 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1714806B19FE78AA0052A2F3 /* Tvc */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Tvc;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		1714807219FE80FF0052A2F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +133,14 @@
 				1714807619FE81140052A2F3 /* DiceGameViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		1797C1EF1A246702005A10FB /* Doc */ = {
+			isa = PBXGroup;
+			children = (
+				1797C1F01A246779005A10FB /* todo.txt */,
+			);
+			name = Doc;
 			sourceTree = "<group>";
 		};
 		17C7256619FB86790093A1DF /* Common */ = {
@@ -193,13 +195,13 @@
 		17ED1CBE19236C050042D968 /* GodThrowDice */ = {
 			isa = PBXGroup;
 			children = (
+				1797C1EF1A246702005A10FB /* Doc */,
 				1714807219FE80FF0052A2F3 /* Controller */,
 				17D2C46E198BEAFC00F0AB8B /* Common */,
 				17ED1D06192464960042D968 /* CustomView */,
 				17ED1CF3192462E80042D968 /* Model */,
 				17ED1CCA19236C050042D968 /* Main.storyboard */,
 				17ED1CD319236C050042D968 /* Images.xcassets */,
-				1714806B19FE78AA0052A2F3 /* Tvc */,
 				17ED1CBF19236C050042D968 /* Supporting Files */,
 			);
 			path = GodThrowDice;
@@ -349,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1797C1F11A246779005A10FB /* todo.txt in Resources */,
 				17ED1CD419236C050042D968 /* Images.xcassets in Resources */,
 				17ED1CC319236C050042D968 /* InfoPlist.strings in Resources */,
 				17ED1CCC19236C050042D968 /* Main.storyboard in Resources */,

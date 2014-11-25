@@ -185,7 +185,6 @@
         // 处理骰子数量ActionSheet选项点击
         NSString *selectedOption = self.diceQuantityOptions[buttonIndex];
         [UserSettings sharedInstance].dice_quantity = selectedOption.integerValue;
-//        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_quantity_string];
     }
     
     else if (indexPath.section == SECTION_INDEX_DICE
@@ -195,7 +194,6 @@
         // 处理骰子面数ActionSheet选项点击
         NSString *selectedOption = self.diceMaxNumberOptions[buttonIndex];
         [UserSettings sharedInstance].dice_sidesNumber = selectedOption.integerValue;
-//        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_sidesNumber_string];
         
         if ([UserSettings sharedInstance].dice_sidesNumber > 6
             &&[UserSettings sharedInstance].dice_style != DiceStyleNumber) {
@@ -207,8 +205,8 @@
              && indexPath.row == ROW_INDEX_DICE_STYLE
              && buttonIndex < self.diceStyleOptions.count)
     {
+        // 处理骰子样式ActionSheet选项点击
         [UserSettings sharedInstance].dice_style_string = self.diceStyleOptions[buttonIndex];
-        [self updateTableViewCellDetail:indexPath value:[UserSettings sharedInstance].dice_style_string];
         
         if ([UserSettings sharedInstance].dice_style == DiceStyleDots
             && [UserSettings sharedInstance].dice_sidesNumber > 6) {
@@ -222,12 +220,13 @@
 }
 
 #pragma mark - 方法
-
+/*
 - (void)updateTableViewCellDetail:(NSIndexPath *)indexPath value:(NSString *)value
 {
     UITableViewCell *cell = [self.tableView_settings cellForRowAtIndexPath:indexPath];
     cell.detailTextLabel.text = value;
 }
+ */
 
 
 #pragma mark - 显示选项 ActionSheet

@@ -146,6 +146,23 @@ typedef struct LayoutIndex LayoutIndex;
     return view;
 }
 
+/**
+ *  开始摇骰子
+ */
+- (void)startDiceRolling
+{
+    uint i = 0;
+    for (id view in self.view_dicePanel.subviews) {
+        if ([view isKindOfClass:[DiceGameBaseView class]]) {
+            RandomOptionItem *option =[self.game generateRandomAndGetSelectedItem];
+            DiceGameBaseView *diceView = (DiceGameBaseView *)view;
+            double plusTime = 0.5 * i;
+            [diceView startAnimateRollingWithTarget:option.optionName options:self.game.optionItems plusTimeSeconds:plusTime];
+            i++;
+        }
+    }
+}
+
 #pragma mark - 骰子宽高坐标
 
 /**
@@ -388,22 +405,18 @@ typedef struct LayoutIndex LayoutIndex;
 
 
 
-#pragma mark - 手势
+#pragma mark - 手势, 摇一摇
 
 - (IBAction)diceGameView_tap:(UITapGestureRecognizer *)sender
 {
-    uint i = 0;
-    for (id view in self.view_dicePanel.subviews) {
-        if ([view isKindOfClass:[DiceGameBaseView class]]) {
-            RandomOptionItem *option =[self.game generateRandomAndGetSelectedItem];
-            DiceGameBaseView *diceView = (DiceGameBaseView *)view;
-            double plusTime = 0.5 * i;
-            [diceView startAnimateRollingWithTarget:option.optionName options:self.game.optionItems plusTimeSeconds:plusTime];
-            i++;
-        }
-    }
+    [self startDiceRolling];
 }
 
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    [self startDiceRolling];
+}
 
 
 @end
