@@ -57,7 +57,8 @@ typedef NS_ENUM(NSUInteger, DiceStyle){
 /**
  *  骰子显示方式 字符串
  */
-@property (nonatomic) NSString *dice_style_string;
+@property (nonatomic, readonly) NSString *dice_style_string;
+
 
 /**
  *  获取单例
@@ -65,5 +66,13 @@ typedef NS_ENUM(NSUInteger, DiceStyle){
  *  @return 单例实例
  */
 + (UserSettings *)sharedInstance;
+
+/**
+ *  设置骰子显示方式顺序
+ *
+ *  @param index 顺序
+ */
+- (void)setDiceStyleIndex:(NSInteger)index;
+
 
 @end

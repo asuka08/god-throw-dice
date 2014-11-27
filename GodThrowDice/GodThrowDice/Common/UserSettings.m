@@ -14,6 +14,13 @@
 
 @implementation UserSettings
 
+
+#pragma mark - 国际化
+
+#define I18N_USER_SETTINGS_DICE_STYLE_NUMBER NSLocalizedString(@"I18N_USER_SETTINGS_DICE_STYLE_NUMBER", @"Number")
+#define I18N_USER_SETTINGS_DICE_STYLE_DOTS NSLocalizedString(@"I18N_USER_SETTINGS_DICE_STYLE_DOTS", @"Dots")
+
+
 #pragma mark - 属性
 
 #define __UD [NSUserDefaults standardUserDefaults]
@@ -87,11 +94,11 @@
     
     switch (self.dice_style) {
         case DiceStyleNumber:
-            styleStr = @"Number";
+            styleStr = I18N_USER_SETTINGS_DICE_STYLE_NUMBER;
             break;
             
         case DiceStyleDots:
-            styleStr = @"Dots";
+            styleStr = I18N_USER_SETTINGS_DICE_STYLE_DOTS;
             break;
             
         default:
@@ -100,15 +107,6 @@
     }
     
     return styleStr;
-}
-
-- (void)setDice_style_string:(NSString *)dice_style_string
-{
-    if ([dice_style_string isEqualToString:@"Number"]) {
-        self.dice_style = DiceStyleNumber;
-    } else if ([dice_style_string hasPrefix:@"Dots"]) {
-        self.dice_style = DiceStyleDots;
-    }
 }
 
 
@@ -130,5 +128,22 @@ static UserSettings* instance = nil;
 }
 
 
+#pragma mark - 方法
+
+- (void)setDiceStyleIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            self.dice_style = DiceStyleNumber;
+            break;
+            
+        case 1:
+            self.dice_style = DiceStyleDots;
+            break;
+            
+        default:
+            break;
+    }
+}
 
 @end

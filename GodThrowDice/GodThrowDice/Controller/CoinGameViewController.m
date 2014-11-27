@@ -25,9 +25,13 @@
 
 @implementation CoinGameViewController
 
+#pragma mark - 国际化
+
+#define I18N_COIN_GAME_VC_TITLE_TAP_OR_SHAKE NSLocalizedString(@"I18N_COIN_GAME_VC_TITLE_TAP_OR_SHAKE", @"TAP or SHAKE")
+#define I18N_COIN_GAME_VC_TITLE_FLIPPING NSLocalizedString(@"I18N_COIN_GAME_VC_TITLE_FLIPPING", @"FLIPPING...")
+
+
 #pragma mark - 属性
-
-
 
 - (CoinGame *)game
 {
@@ -36,6 +40,7 @@
     }
     return _game;
 }
+
 
 #pragma mark - 方法
 
@@ -53,7 +58,7 @@
                                              selector:@selector(notificationObserver_flipFinished:)
                                                  name:COIN_GAME_NOTIFICATION_FLIP_FINISHED
                                                object:nil];
-    self.label_title.text = @"TAP or SHAKE";
+    self.label_title.text = I18N_COIN_GAME_VC_TITLE_TAP_OR_SHAKE;
     
 }
 
@@ -70,7 +75,10 @@
 //    NSLog(@"---- notification received");
     if ([notification.object isKindOfClass:[NSString class]]) {
         NSString *s = (NSString *)notification.object;
-        self.label_title.text = [s uppercaseString];
+        // self.label_title.text = [s uppercaseString];
+        self.label_title.text = [[NSBundle mainBundle] localizedStringForKey:s
+                                                                       value:s
+                                                                       table:@"RandomGame"];
     }
 }
 
@@ -91,8 +99,9 @@
 - (void)startCoinFlipping
 {
     RandomOptionItem *item = [self.game generateRandomAndGetSelectedItem];
-    self.label_title.text = @"FLIPPING...";
+    self.label_title.text = I18N_COIN_GAME_VC_TITLE_FLIPPING;
     [self.gameView startAnimateFlip:item.optionName];
+    
 }
 
 

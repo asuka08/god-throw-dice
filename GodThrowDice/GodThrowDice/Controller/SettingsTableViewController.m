@@ -36,7 +36,26 @@
 
 #define DICE_QUANTITY_OPTIONS @"1", @"2", @"3", @"4", @"5", @"6"
 #define DICE_SIDES_NUMBER_OPTIONS @"4", @"6", @"8", @"10", @"12", @"20", @"100" //, @"2", @"3", @"4", @"5", @"6",  @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40", @"41", @"42", @"43", @"44", @"45", @"46", @"47", @"48", @"49", @"50", @"51", @"52", @"53", @"54", @"55", @"56", @"57", @"58", @"59", @"60", @"61", @"62", @"63", @"64", @"65", @"66", @"67", @"68", @"69", @"70", @"71", @"72", @"73", @"74", @"75", @"76", @"77", @"78", @"79", @"80", @"81", @"82", @"83", @"84", @"85", @"86", @"87", @"88", @"89", @"90", @"91", @"92", @"93", @"94", @"95", @"96", @"97", @"98", @"99", @"100"
-#define DICE_STYLE_OPTIOINS @"Number", @"Dots (6 sides or less)"
+#define DICE_STYLE_OPTIOINS I18N_SETTINGS_VC_DICE_STYLE_OPTIONS_NUMBER, I18N_SETTINGS_VC_DICE_STYLE_OPTIONS_DOTS
+
+
+#pragma mark - 国际化
+
+#define I18N_SETTINGS_VC_CELL_TEXT_DICE_QUANTITY NSLocalizedString(@"I18N_SETTINGS_VC_CELL_TEXT_DICE_QUANTITY", @"Dice Quantity")
+#define I18N_SETTINGS_VC_CELL_TEXT_DICE_SIDES_NUMBER NSLocalizedString(@"I18N_SETTINGS_VC_CELL_TEXT_DICE_SIDES_NUMBER", @"Dice Sides Number")
+#define I18N_SETTINGS_VC_CELL_TEXT_DICE_STYLE NSLocalizedString(@"I18N_SETTINGS_VC_CELL_TEXT_DICE_STYLE", @"Dice Style")
+#define I18N_SETTINGS_VC_SECTION_TITLE_DICE_SETTINGS NSLocalizedString(@"I18N_SETTINGS_VC_SECTION_TITLE_DICE_SETTINGS", @"Dice Settings")
+#define I18N_SETTINGS_VC_SECTION_TITLE_COIN_SETTINGS NSLocalizedString(@"I18N_SETTINGS_VC_SECTION_TITLE_COIN_SETTINGS", @"Coin Settings")
+
+#define I18N_SETTINGS_VC_OPTION_TITLE_DICE_QUANTITY NSLocalizedString(@"I18N_SETTINGS_VC_OPTION_TITLE_DICE_QUANTITY", @"Select Dice Quantity")
+#define I18N_SETTINGS_VC_OPTION_TITLE_DICE_SIDES_NUMBER NSLocalizedString(@"I18N_SETTINGS_VC_OPTION_TITLE_DICE_SIDES_NUMBER", @"Select Dice Sides Number")
+#define I18N_SETTINGS_VC_OPTION_TITLE_DICE_STYLE NSLocalizedString(@"I18N_SETTINGS_VC_OPTION_TITLE_DICE_STYLE", @"Select Dice Style")
+#define I18N_SETTINGS_VC_OPTION_CANCEL NSLocalizedString(@"I18N_SETTINGS_VC_OPTION_CANCEL", @"Cancel")
+
+#define I18N_SETTINGS_VC_DICE_STYLE_OPTIONS_NUMBER NSLocalizedString(@"I18N_SETTINGS_VC_DICE_STYLE_OPTIONS_NUMBER", @"Number")
+#define I18N_SETTINGS_VC_DICE_STYLE_OPTIONS_DOTS NSLocalizedString(@"I18N_SETTINGS_VC_DICE_STYLE_OPTIONS_DOTS", @"Dots (6 sides or less)")
+
+
 
 
 #pragma mark - 属性
@@ -118,18 +137,18 @@
                                                             forIndexPath:indexPath];
     
     if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_QUANTITY) {
-        cell.textLabel.text = @"Dice Quantity";
+        cell.textLabel.text = I18N_SETTINGS_VC_CELL_TEXT_DICE_QUANTITY;
         cell.detailTextLabel.text = [UserSettings sharedInstance].dice_quantity_string;
         
     }
     
     else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_SIDES_NUMBER) {
-        cell.textLabel.text = @"Dice Sides Number";
+        cell.textLabel.text = I18N_SETTINGS_VC_CELL_TEXT_DICE_SIDES_NUMBER;
         cell.detailTextLabel.text = [UserSettings sharedInstance].dice_sidesNumber_string;
     }
     
     else if (indexPath.section == SECTION_INDEX_DICE && indexPath.row == ROW_INDEX_DICE_STYLE) {
-        cell.textLabel.text = @"Dice Style";
+        cell.textLabel.text = I18N_SETTINGS_VC_CELL_TEXT_DICE_STYLE;
         cell.detailTextLabel.text = [UserSettings sharedInstance].dice_style_string;
     }
     
@@ -142,11 +161,11 @@
     
     switch (section) {
         case 0:
-            title = @"Dice Settings";
+            title = I18N_SETTINGS_VC_SECTION_TITLE_DICE_SETTINGS;
             break;
             
         case 1:
-            title = @"Coin Settings";
+            title = I18N_SETTINGS_VC_SECTION_TITLE_COIN_SETTINGS;
             break;
             
         default:
@@ -206,7 +225,7 @@
              && buttonIndex < self.diceStyleOptions.count)
     {
         // 处理骰子样式ActionSheet选项点击
-        [UserSettings sharedInstance].dice_style_string = self.diceStyleOptions[buttonIndex];
+        [[UserSettings sharedInstance] setDiceStyleIndex:buttonIndex];
         
         if ([UserSettings sharedInstance].dice_style == DiceStyleDots
             && [UserSettings sharedInstance].dice_sidesNumber > 6) {
@@ -233,9 +252,9 @@
 
 - (void)showOptionsForDiceQuantity
 {
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Select Dice Quantity"
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:I18N_SETTINGS_VC_OPTION_TITLE_DICE_QUANTITY
                                                    delegate:self
-                                          cancelButtonTitle:@"Cancel"
+                                          cancelButtonTitle:I18N_SETTINGS_VC_OPTION_CANCEL
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:DICE_QUANTITY_OPTIONS, nil];
     [as showInView:self.view];
@@ -244,9 +263,9 @@
 
 - (void)showOptionsForDiceMaxNumber
 {
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Select Dice Sides Number"
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:I18N_SETTINGS_VC_OPTION_TITLE_DICE_SIDES_NUMBER
                                                    delegate:self
-                                          cancelButtonTitle:@"Cancel"
+                                          cancelButtonTitle:I18N_SETTINGS_VC_OPTION_CANCEL
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:DICE_SIDES_NUMBER_OPTIONS, nil];
     [as showInView:self.view];
@@ -254,9 +273,9 @@
 
 - (void)showOptionsForDiceStyle
 {
-    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Select Dice Style"
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:I18N_SETTINGS_VC_OPTION_TITLE_DICE_STYLE
                                                     delegate:self
-                                           cancelButtonTitle:@"Cancel"
+                                           cancelButtonTitle:I18N_SETTINGS_VC_OPTION_CANCEL
                                       destructiveButtonTitle:nil
                                            otherButtonTitles:DICE_STYLE_OPTIOINS, nil];
     [as showInView:self.view];

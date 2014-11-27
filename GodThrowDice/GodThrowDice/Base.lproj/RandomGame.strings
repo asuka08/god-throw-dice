@@ -1,0 +1,10 @@
+/* 
+  RandomGame.strings
+  GodThrowDice
+
+  Created by asuka on 14/11/27.
+  Copyright (c) 2014年 verysb. All rights reserved.
+*/
+
+"obverse" = "Obverse";
+"reverse" = "Reverse";

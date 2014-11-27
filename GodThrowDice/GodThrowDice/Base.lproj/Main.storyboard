@@ -162,11 +162,11 @@
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="g23-D2-DM8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HSH-SY-X4Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="tabbarIcon_settings" id="bre-qz-H2u"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tabbarIcon_settings" id="bre-qz-H2u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LDM-QO-EO4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

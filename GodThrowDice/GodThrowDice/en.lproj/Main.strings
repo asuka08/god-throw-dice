@@ -1,0 +1,30 @@
+
+/* Class = "IBUILabel"; text = "TAP or SHAKE"; ObjectID = "0SG-fD-3cu"; */
+"0SG-fD-3cu.text" = "TAP or SHAKE";
+
+/* Class = "IBUIViewController"; title = "First"; ObjectID = "CZ4-MO-1fc"; */
+"CZ4-MO-1fc.title" = "First";
+
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "Ook-LL-OLK"; */
+"Ook-LL-OLK.title" = "Settings";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "P8u-Dq-Hmx"; */
+"P8u-Dq-Hmx.text" = "Detail";
+
+/* Class = "IBUIViewController"; title = "Second"; ObjectID = "QUy-BD-bpt"; */
+"QUy-BD-bpt.title" = "Second";
+
+/* Class = "IBUITabBarItem"; title = "DICE"; ObjectID = "Z7h-1E-pvt"; */
+"Z7h-1E-pvt.title" = "DICE";
+
+/* Class = "IBUITabBarItem"; title = "Setting"; ObjectID = "bre-qz-H2u"; */
+"bre-qz-H2u.title" = "Setting";
+
+/* Class = "IBUILabel"; text = "TAP or SHAKE"; ObjectID = "frj-Mf-Lw0"; */
+"frj-Mf-Lw0.text" = "TAP or SHAKE";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "shf-5B-p4A"; */
+"shf-5B-p4A.text" = "Title";
+
+/* Class = "IBUITabBarItem"; title = "COIN"; ObjectID = "u1e-5L-l1D"; */
+"u1e-5L-l1D.title" = "COIN";
